@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="/css/screen.css" rel="stylesheet" type="text/css" />
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/js/functions.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+  	<div id="header">
+      	    <h1><span>ScoreCenter</span></h1>
+              <div id="nav">
+              	<ul class="minimenu">
+                      <li><a href="#">Invitar Amigos</a></li>
+                      <li class="space"></li>
+                      <li><a href="como_ganar.html">¿Cómo Ganar?</a></li>
+                  </ul>
+              	<ul class="menu">
+                      <li><a href="premios.html">Premios</a><span></span></li>
+                      <li class="space"></li>
+                      <li><a href="../../resultados">Resultados</a><span></span></li>
+                      <li class="space"></li>
+                      <li><a href="ranking.html">Ranking</a><span></span></li>
+                      <li class="space"></li>
+                      <li class="activ"><a href="juegos_semana.html">Juegos</a><span></span></li>
+                  </ul>
+              </div>
+  	</div>
+
+  <div id="content">
+      	<div class="title">
+          <a class="next" href="#"></a><h3>{{ profile.id }}semana 1 - 11 OCTUBRE 2012</h3><a class="previous" href="#"></a>
+        </div>
+        
+        {% for juego in lista %}
+          {{ profile.id }}
+            <li class="mod_predic" id="pre-tab{{ juego.id }}" open_id="{{ juego.id }}">
+                  <p class="titulo">{{ juego.equipoa }} VS {{ juego.equipob }}</p>
+                  <p class="subtitulo">{{ juego.fecha }}</p>
+                  <a class="btn_hacer_prediccion" open_id="{{ juego.id }}" href="#"><span>Hacer Predicción</span></a>
+                  <div class="minicontador">
+                    <input type="text" class="count1" disabled="disabled">
+                    <input type="text" class="count2" disabled="disabled">
+                  </div>
+          	</li>
+          {% if juego.resultadoa != null %} 
+            <div class="mod_predic_open" id="pre{{ juego.id }}">
+                <p class="titulo">{{ juego.equipoa }} VS {{ juego.equipob }}</p>
+                <p class="subtitulo">{{ juego.fecha }} </p>
+              <div class="contador_pred">
+                <div class="equipo1">{{ juego.equipoa }}</div>
+                <div class="equipo2">{{ juego.equipob }}</div>
+                <input type="hidden" value ="{{ juego.id }}">
+                <input type="text" id = "marcadora_{{ juego.id }}" open_id="{{ juego.id }}" class="marcador1" value="" onkeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;">
+                <input type="text" id = "marcadorb_{{ juego.id }}" class="marcador2" open_id="{{ juego.id }}" value="" onkeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;">
+              </div>
+              <a class="btn_cerrar" href="#" open_id="{{ juego.id }}"></a>
+              <input type="submit" id = "btnacep_{{ juego.id }}" class="btn_aceptar" href="#" value=" " disabled="disabled">
+              <p class="accion">Prediciendo</p>
+            </div>
+          
+          {% endif %}
+         {% endfor %}
+
+    </div>
+      <div class="paginado"><a class="next" href="#"></a><h3>SEMANAS <a href="#">1</a>-<a href="/juegos/2/">2</a>-<a href="/juegos/3/">3</a>-<a href="/juegos/4/">4</a>-<a href="/juegos/5/">5</a></h3><a class="previous" href="#"></a></div>
+      <div class="mensajes">
+     		<p></p>
+      </div>
+      <div class="legal">
+  <p>DISFRUTA DE UN CONSUMO RESPONSABLE.</p> 
+         <p>El consumo de alcohol en exceso puede ser nocivo para la salud. RIF J-07000344-8</p> 
+         <p><a href="politicas.html">Políticas de Privacidad</a></p> 
+      </div>
+  </div>
+
+</body>
+</html>

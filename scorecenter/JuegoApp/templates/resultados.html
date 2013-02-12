@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="/css/screen.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="header">
+          <h1><span>ScoreCenter</span></h1>
+            <div id="nav">
+              <ul class="minimenu">
+                    <li><a href="#">Invitar Amigos</a></li>
+                    <li class="space"></li>
+                    <li><a href="como_ganar.html">¿Cómo Ganar?</a></li>
+                </ul>
+              <ul class="menu">
+                    <li><a href="premios.html">Premios</a><span></span></li>
+                    <li class="space"></li>
+                    <li class="activ"><a href="../../resultados">Resultados</a><span></span></li>
+                    <li class="space"></li>
+                    <li><a href="ranking.html">Ranking</a><span></span></li>
+                    <li class="space"></li>
+                    <li><a href="../../juegos">Juegos</a><span></span></li>
+                </ul>
+            </div>
+  </div>
+<div id="content">
+      <div class="title"><a class="next" href="#"></a><h3>Juegos: </h3><a class="previous" href="#"></a></div>
+      {% for juego in lista %}
+      <li class="mod_nopredic ddt1">
+            <p class="titulo">{{ juego.equipoa }} VS {{ juego.equipob }}</p>
+            <p class="subtitulo">{{ juego.fecha }}</p>
+        <a class="btn_ver_detalle" href="detalle1.html"><span>Ver Detalle</span></a>
+        <span class="status correcta">¡ACERTASTE!</span>
+            <div class="minicontador">
+              <input type="text" class="count1" value="{{juego.resultadoa}}" disabled="disabled">
+              <input type="text" value="{{juego.resultadob}}" class="count2" disabled="disabled">
+            </div>
+      </li>
+      {% endfor %}
+        
+  </div>
+    <div class="paginado"><a class="next" href="#"></a><h3>SEMANAS <a href="#">1</a>-<a href="#">2</a>-<a href="#">3</a>-<a href="#">4</a>-<a href="#">5</a></h3><a class="previous" href="#"></a></div>
+    <div class="mensajes">
+      <p>Per mauris, et malesuada tellus lectus in metus. Suspendisse eget mollis elit. Proin mollis vestibulum justo auctor ultricies.</p>
+    </div>
+    <div class="legal">
+<p>DISFRUTA DE UN CONSUMO RESPONSABLE.</p> 
+       <p>El consumo de alcohol en exceso puede ser nocivo para la salud. RIF J-07000344-8</p> 
+       <p><a href="politicas.html">Políticas de Privacidad</a></p> 
+    </div>
+</div>
+
+</body>
+</html>
